@@ -1,27 +1,30 @@
 package main
 
 import (
+	"log"
 	"net/http"
+	"sync"
 
 	"github.com/gorilla/websocket"
 )
 
 var (
 	websocketUpgrader = websocket.Upgrader{
-		ReadBufferSize: 1024,
+		ReadBufferSize:  1024,
 		WriteBufferSize: 1024,
 	}
 )
 
 type Manager struct {
-
+	client ClientList
+	sync.RWMutex
 }
 
-func New Manager() *Manager {
+func NewManager() *Manager {
 	return &Manager{}
 }
 
-func (m *Manager) serveWS(w http.ResponseWriter, r *http.Request){
+func (m *Manager) serveWS(w http.ResponseWriter, r *http.Request) {
 	log.Println("new connection")
 
 	//upgrade regular http connection into websocket
