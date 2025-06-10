@@ -1,6 +1,8 @@
 package main
 
-import "github.com/gorilla/websocket"
+import (
+	"github.com/gorilla/websocket"
+)
 
 type ClientList map[*Client]bool
 
@@ -10,7 +12,7 @@ type Client struct {
 }
 
 func NewClient(conn *websocket.Conn, manager *Manager) *Client {
-	return &Client {
+	return &Client{
 		connection: conn,
 		manager: manager,
 	}
