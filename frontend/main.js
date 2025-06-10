@@ -11,7 +11,7 @@ function changeChatRoom() {
 function sendMessage() {
     var newmessage = document.getElementById("message")
     if(newmessage != null){
-        console.log(newmessage)
+      conn.send(newmessage.value)
     }
     return false;
 }

@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 	"sync"
-
 	"github.com/gorilla/websocket"
 )
 
@@ -61,13 +60,3 @@ func (m *Manager) removeClient(client *Client) {
 }
 
 
-func (c *Client) readMessages(){
-	for {
-		messageType, payload, err := c.connection.ReadMessages()
-
-		if err != nil{
-			if websocket.IsUnexpectedCloseErr(err, websocket, CloseGoingAway, websocket.)
-			break
-		}
-	}
-}
