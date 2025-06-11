@@ -44,6 +44,7 @@ func (m *Manager) serveWS(w http.ResponseWriter, r *http.Request) {
 
 	//Start client processss
 	go client.readMessages() // reading messages concurrently on a go routine
+	go client.writeMessages()
 }
 
 // takes Client as an argument and changes a client's bool to true in ClientList
