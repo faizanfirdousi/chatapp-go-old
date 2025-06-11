@@ -5,13 +5,16 @@ import (
 	"log"
 )
 
-type ClientList map[*Client]bool
+type ClientList map[*Client]bool // goes as an argument in manager struct
 
+
+// goes as an argument ins ClientList
 type Client struct {
 	connection *websocket.Conn
 	manager *Manager
 }
 
+// a constructor/factory function to create instance of Client
 func NewClient(conn *websocket.Conn, manager *Manager) *Client {
 	return &Client{
 		connection: conn,
@@ -20,13 +23,12 @@ func NewClient(conn *websocket.Conn, manager *Manager) *Client {
 }
 
 
-
-
 func (c *Client) readMessages(){
 	defer func() {
 		//cleanup connection
 		c.manager.removeClient(c)
 	}()
+
 	for {
 		messageType, payload, err := c.connection.ReadMessage()
 
