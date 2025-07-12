@@ -7,7 +7,7 @@ While I gained foundational understanding through this, I later realized the arc
 
 I have since restarted the project from scratch with a new direction, building a CLI-based version where I’m adding more features and writing cleaner, self-understood code.
 
-👉 The newer version is available here: (link)
+👉 The newer version is available here: (https://github.com/faizanfirdousi/go-cli-chat)
 
 ---
 
